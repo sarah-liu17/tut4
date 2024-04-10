@@ -1,3 +1,4 @@
+
 ---
 title: "Learning to reference figures, tables and sections"
 author: "Sarah Liu"
@@ -7,6 +8,36 @@ output:
 keep-md: true
 ---
 
+
+```{r}
+knitr::opts_chunk$set(fig.align="center")
+```
+
+
+```{r}
+library(tidyverse)
+```
+
+# Learning to reference figures
+```{r fig ref, eval=TRUE, echo=TRUE}
+#| label: fig-randomnoise
+#| fig-cap: "This is random noise"
+x <- rnorm(100)
+y <- seq(1,100)
+
+```
+@fig-randomnoise shows an example plot of random noise.
+
+# Learning the reference tables
+```{r}
+#| label: tbl-example
+#| tbl-cap: "First 5 rows of the example data."
+
+kableExtra::kable(dat[1:5,])
+```
+@tbl-example shows the first few rows of the example table.
+
+```{quarto, options={"figure.align": "center"}}
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
@@ -16,7 +47,7 @@ Quarto enables you to weave together content and executable code into a finished
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
-1 + 1
+library(tidyverse)
 ```
 
 You can add options to executable code like this 
